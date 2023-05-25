@@ -1,0 +1,27 @@
+﻿@page "/"
+
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Schedule
+@using Syncfusion.Blazor.Data
+@using SqlServerDataBinding.Data
+@using SqlServerDataBinding.Pages
+
+<SfSchedule TValue="AppointmentData" Width="100%" Height="600px" @bind-SelectedDate="@SelectedDate">
+    <ScheduleViews>
+        <ScheduleView Option="View.Day"></ScheduleView>
+        <ScheduleView Option="View.Week"></ScheduleView>
+        <ScheduleView Option="View.WorkWeek"></ScheduleView>
+        <ScheduleView Option="View.Month"></ScheduleView>
+        <ScheduleView Option="View.Agenda"></ScheduleView>
+    </ScheduleViews>
+    <ScheduleEventSettings TValue="AppointmentData">
+        <SfDataManager Adaptor="Adaptors.CustomAdaptor">
+            <CustomAdaptorComponent></CustomAdaptorComponent>
+        </SfDataManager>
+    </ScheduleEventSettings>
+</SfSchedule>
+
+@code {
+    DateTime SelectedDate { get; set; } = new DateTime(2023, 5, 10);
+    public static List<AppointmentData> Appointment { get; set; }
+}
