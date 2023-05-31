@@ -1,6 +1,5 @@
 ﻿@page "/"
 
-@using Syncfusion.Blazor
 @using Syncfusion.Blazor.Schedule
 @using Syncfusion.Blazor.Data
 @using SqlServerDataBinding.Data
@@ -23,5 +22,5 @@
 
 @code {
     DateTime SelectedDate { get; set; } = new DateTime(2023, 5, 10);
-    public static List<AppointmentData> Appointment { get; set; }
+    public static List<AppointmentData>? Appointment { get; set; }
 }
