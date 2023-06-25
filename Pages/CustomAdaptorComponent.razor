@@ -7,7 +7,7 @@
 @using Microsoft.AspNetCore.Hosting;
 @using System.Text.Json.Serialization;
 @using SqlServerDataBinding.Data;
-@inject IHostingEnvironment _env
+@inject IConfiguration Configuration
 
 @inherits DataAdaptor<AppointmentData>
 
@@ -19,6 +19,8 @@
     [Parameter]
     [JsonIgnore]
     public RenderFragment ChildContent { get; set; }
+
+    public List<AppointmentData> Appointment { get; set; }
 
     public static DataSet CreateCommand(string queryString, string connectionString)
     {
@@ -50,9 +52,7 @@
     // DataManagerRequest defines the members of the query
     public override object Read(DataManagerRequest DataManagerReq, string Key = null)
     {
-        string AppData = _env.ContentRootPath;
-        string DatabasePath = Path.Combine(AppData, "App_Data\\AppointmentDataDB.mdf");
-        var connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + Directory.GetCurrentDirectory() + "\\AppData\\AppointmentDataDB.mdf;Integrated Security=True";
+        string connectionString = Configuration.GetConnectionString("AppointmentDataDB");
         string QueryStr = "SELECT * FROM dbo.AppointmentDatas";
         DataSet Data = CreateCommand(QueryStr, connectionString);
         Appointment = Data.Tables[0].AsEnumerable().Select(r => new AppointmentData
