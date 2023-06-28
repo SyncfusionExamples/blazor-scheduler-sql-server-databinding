@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + Directory.GetCurrentDirectory() + "\\AppData\\AppointmentDataDB.mdf;Integrated Security=True";
+
+var connectionString = builder.Configuration.GetConnectionString("AppointmentDataDB");
 builder.Services.AddDbContext<AppointmentDataContext>(opts => opts.UseSqlServer(connectionString));
 
 // Add services to the container.
@@ -13,6 +14,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSyncfusionBlazor();
+
 
 var app = builder.Build();
 

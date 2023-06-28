@@ -101,11 +101,11 @@ namespace SqlServerDataBinding.Migrations
                         new
                         {
                             RecordID = 1,
-                            EndTime = new DateTime(2023, 5, 25, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndTime = new DateTime(2023, 6, 5, 10, 30, 0, 0, DateTimeKind.Unspecified),
                             Id = 1,
                             IsAllDay = false,
                             Location = "Tamilnadu",
-                            StartTime = new DateTime(2023, 5, 25, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2023, 6, 5, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             Subject = "Meeting"
                         });
                 });
