@@ -11,11 +11,11 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="_content/Syncfusion.Blazor.Themes/fluent2.css" rel="stylesheet" />
     <script src="_content/Syncfusion.Blazor.Core/scripts/syncfusion-blazor.min.js" type="text/javascript"></script>
-    <HeadOutlet @rendermode="InteractiveServer" />
+    <HeadOutlet @rendermode="RenderModeNoPrerender" />
 </head>
 
 <body>
-    <Routes @rendermode="InteractiveServer" />
+    <Routes @rendermode="RenderModeNoPrerender" />
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
@@ -26,3 +26,8 @@
 </body>
 
 </html>
+
+@code {
+    // Prerendering is disabled: the Scheduler and its custom adaptor must render only on the interactive circuit.
+    private static readonly IComponentRenderMode RenderModeNoPrerender = new InteractiveServerRenderMode(prerender: false);
+}
