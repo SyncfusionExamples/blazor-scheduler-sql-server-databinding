@@ -16,19 +16,19 @@ This quick start project demonstrates how to consume data from SQL Server using 
 * **SQL Server**: Relational database for event storage
 * **Entity Framework Core**: ORM for database access and management
 * **Microsoft SqlClient**: Direct SQL Server data provider
-* **Visual Studio 2022**: Development environment
+* **Visual Studio 2026 (or Visual Studio 2022 17.14+)**: Development environment
 
 ## Prerequisites
 
-* Visual Studio 2022
-* SQL Server Data Tools within Visual Studio 2022
-* .NET 7.0 or later
+* Visual Studio 2026 (or Visual Studio 2022 17.14+)
+* SQL Server Data Tools within Visual Studio 2026 (or Visual Studio 2022 17.14+)
+* .NET 10.0 SDK or later
 * SQL Server 2016 or later
 
 ## Installation
 
 1. Checkout this project to your local machine
-2. Open the solution file using Visual Studio 2022
+2. Open the solution file using Visual Studio 2026 (or Visual Studio 2022 17.14+)
 3. Build the solution to restore the required NuGet packages
 
 ## Database Setup

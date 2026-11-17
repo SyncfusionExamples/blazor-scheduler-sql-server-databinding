@@ -1,6 +1,5 @@
-﻿@using Syncfusion.Blazor;
+@using Syncfusion.Blazor;
 @using Syncfusion.Blazor.Data;
-@using static SqlServerDataBinding.Pages.Index;
 @using Microsoft.Data.SqlClient;
 @using System.Data;
 @using System.IO;
@@ -39,6 +38,7 @@
             catch (SqlException se)
             {
                 Console.WriteLine(se.ToString());
+                throw;
             }
             finally
             {
