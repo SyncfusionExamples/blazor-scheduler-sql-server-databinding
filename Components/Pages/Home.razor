@@ -1,9 +1,9 @@
-﻿@page "/"
+@page "/"
 
 @using Syncfusion.Blazor.Schedule
 @using Syncfusion.Blazor.Data
 @using SqlServerDataBinding.Data
-@using SqlServerDataBinding.Pages
+@using SqlServerDataBinding.Components.Pages
 
 <SfSchedule TValue="AppointmentData" Width="100%" Height="600px" @bind-SelectedDate="@SelectedDate">
     <ScheduleViews>
@@ -21,5 +21,5 @@
 </SfSchedule>
 
 @code {
-    DateTime SelectedDate { get; set; } = new DateTime(2023, 6, 10);  
+    DateTime SelectedDate { get; set; } = new DateTime(2023, 6, 10);
 }
