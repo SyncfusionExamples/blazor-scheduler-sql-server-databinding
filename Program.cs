@@ -16,6 +16,12 @@ builder.Services.AddSyncfusionBlazor();
 
 var app = builder.Build();
 
+// Create the database and the AppointmentDatas table (with seed data) if they do not exist yet.
+using (var scope = app.Services.CreateScope())
+{
+    scope.ServiceProvider.GetRequiredService<AppointmentDataContext>().Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
